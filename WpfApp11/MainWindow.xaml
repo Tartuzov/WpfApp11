@@ -1,0 +1,53 @@
+﻿<Window x:Class="WpfApp11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp11"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <DockPanel Margin="15">
+                <TextBlock Margin="0,0,10,0">FontWeidth:</TextBlock>
+                <ComboBox Name="Fw">
+                    <ComboBoxItem>Black</ComboBoxItem>
+                    <ComboBoxItem>Bold</ComboBoxItem>
+                    <ComboBoxItem>DemiBold</ComboBoxItem>
+                    <ComboBoxItem>ExtraBlack</ComboBoxItem>
+                    <ComboBoxItem>ExtraBold</ComboBoxItem>
+                    <ComboBoxItem>ExtraLight</ComboBoxItem>
+                    <ComboBoxItem>Heavy</ComboBoxItem>
+                    <ComboBoxItem>Light</ComboBoxItem>
+                    <ComboBoxItem>Medium</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">Normal</ComboBoxItem>
+                    <ComboBoxItem>Regular</ComboBoxItem>
+                    <ComboBoxItem>Semibold</ComboBoxItem>
+                    <ComboBoxItem>Thin</ComboBoxItem>
+                    <ComboBoxItem>UltraBlack</ComboBoxItem>
+                    <ComboBoxItem>UltraBold</ComboBoxItem>
+                    <ComboBoxItem>UltraLight</ComboBoxItem>
+                </ComboBox>
+            </DockPanel>
+            <DockPanel Margin="15">
+                <TextBlock Margin="0,0,10,0">FontStyle:</TextBlock>
+                <CheckBox FontStyle="Italic" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked">Italic</CheckBox>
+            </DockPanel>
+            <DockPanel Margin="15">
+                <TextBlock Margin="0,0,10,0">Foreground:</TextBlock>
+                <ComboBox Name="for">
+                    <ComboBoxItem Name="bla" MinHeight="20" IsSelected="True" >Black</ComboBoxItem>
+                    <ComboBoxItem Name="red" MinHeight="20" >Blue</ComboBoxItem>
+                    <ComboBoxItem Name="blu" MinHeight="20" >Red</ComboBoxItem>
+                </ComboBox>
+            </DockPanel>
+            <DockPanel Margin="15">
+                <TextBlock Margin="0,0,10,0">FontSize:</TextBlock>
+                <TextBox Name="tb1"  MinWidth="30" Margin="0,0,10,0" Text="{Binding ElementName=text, Mode=OneTime, Path=FontSize}"></TextBox>
+                <Slider  IsSnapToTickEnabled="True" TickFrequency="1" Minimum="1"  Name="sl" Maximum="36" Value="{Binding ElementName=tb1, Mode=TwoWay, Path= Text}"></Slider>
+            </DockPanel>
+        <TextBox  FontSize="{Binding ElementName=tb1, Path=Text}" Foreground="{Binding ElementName=for, Path=Text
+            }" FontWeight="{Binding ElementName=Fw, Path=Text}" Name="text" VerticalAlignment="Center" MinHeight="210"></TextBox>
+        </StackPanel>
+    </Grid>
+</Window>
